@@ -7,28 +7,23 @@ const setWeatherInfo = (type, payload) => ({ type, payload });
 
 const setLoader = (type, payload) => ({ type, payload });
 
-// fetch the weather info for 5 days for each 3hrs
-export const getWeatherInfo = ({
-  location = 'Munich,de',
-}) => async dispatch => {
+export const setUnit = (type, payload) => ({ type, payload });
+
+export const setSelectedCard = (type, payload = '') => ({ type, payload });
+
+// fetch the weather info for 5 days & every 3 hours
+export const getWeatherInfo = ({ location = 'Munich,de', units }) => async dispatch => {
   dispatch(setLoader(TYPES.LOADER, true));
   const config = {
     url:
       API_BASE_URL +
-      END_POINTS.GET_WEATHER_INFO.replace('{LOCATION}', location).replace(
-        '{APP_ID}',
-        APP_ID,
-      ),
+      END_POINTS.GET_WEATHER_INFO.replace('{LOCATION}', location).replace('{APP_ID}', APP_ID).replace('{UNITS}', units),
   };
   try {
     const weatherInfoResponse = await ApiCall.getCall(config);
     if (weatherInfoResponse?.data && weatherInfoResponse?.status === 200) {
-      weatherInfoResponse.data.dayWiseList = dayWiseAvgTemp(
-        weatherInfoResponse.data.list,
-      );
-      await dispatch(
-        setWeatherInfo(TYPES.WEATHER_INFO, weatherInfoResponse.data),
-      );
+      weatherInfoResponse.data.dayWiseList = dayWiseAvgTemp(weatherInfoResponse.data.list);
+      await dispatch(setWeatherInfo(TYPES.WEATHER_INFO, weatherInfoResponse.data));
     } else {
       await dispatch(setWeatherInfo(TYPES.WEATHER_INFO, {}));
     }

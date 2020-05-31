@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Grid,
-  FormControl,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-} from '@material-ui/core';
+import React, { useEffect } from 'react';
+import { Grid } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 
-import WeatherCards from '../../components/WeatherCards';
+import WeatherCards from '../WeatherCards';
 import './App.css';
 import { constants } from '../../config/constants';
-import { getWeatherInfo } from '../../actions/WeatherInfo.action';
+import { getWeatherInfo, setUnit } from '../../actions/WeatherInfo.action';
 import Loader from '../../components/Loader';
+import { TYPES } from '../../actions/types';
+import UnitSelector from '../../components/UnitSelector';
+import TemperatureBarChart from '../TemperatureBarChart';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -24,19 +21,22 @@ const useStyles = makeStyles(() => ({
 
 const App = () => {
   const classes = useStyles();
-  const [unit, setUnit] = useState(constants.FAHRENHEIT);
   const dispatch = useDispatch();
 
-  const { weatherInfo, loader } = useSelector(state => state.weather);
+  const { weatherInfo, loader, unit } = useSelector(state => state.weather);
+
+  const getWeather = async units => {
+    await dispatch(getWeatherInfo({ units }));
+  };
 
   useEffect(() => {
-    (async () => {
-      await dispatch(getWeatherInfo({}));
-    })();
+    getWeather(constants.FAHRENHEIT);
   }, []);
 
   const handleChange = event => {
-    setUnit(event.target.value);
+    const { value } = event.target;
+    dispatch(setUnit(TYPES.SET_UNIT, value));
+    getWeather(value);
   };
 
   if (loader) {
@@ -46,39 +46,9 @@ const App = () => {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid container>
-        <Grid
-          item
-          container
-          xs={12}
-          style={{
-            height: '10%',
-            border: '1px solid red',
-            justifyContent: 'center',
-          }}>
-          <FormControl component="fieldset">
-            <RadioGroup
-              aria-label="unit"
-              name="unit"
-              row
-              value={unit}
-              onChange={handleChange}>
-              <FormControlLabel
-                value={constants.CELCIUS}
-                control={<Radio />}
-                label="Celcius"
-              />
-              <FormControlLabel
-                value={constants.FAHRENHEIT}
-                control={<Radio />}
-                label="Fahrenheit"
-              />
-            </RadioGroup>
-          </FormControl>
-        </Grid>
+        <UnitSelector handleChange={handleChange} unit={unit} />
         <WeatherCards weatherInfo={weatherInfo} />
-        <Grid item xs={12} style={{ height: '50%', border: '1px solid red' }}>
-          grid
-        </Grid>
+        <TemperatureBarChart weatherInfo={weatherInfo} />
       </Grid>
     </Grid>
   );

@@ -1,4 +1,5 @@
 import { TYPES } from '../actions/types';
+import { constants } from '../config/constants';
 
 const initialState = {
   weatherInfo: {
@@ -7,6 +8,8 @@ const initialState = {
     city: {},
   },
   loader: false,
+  unit: constants.FAHRENHEIT,
+  selectedCard: '',
 };
 
 export const weather = (state = initialState, action) => {
@@ -20,6 +23,16 @@ export const weather = (state = initialState, action) => {
       return {
         ...state,
         loader: action.payload,
+      };
+    case TYPES.SET_UNIT:
+      return {
+        ...state,
+        unit: action.payload,
+      };
+    case TYPES.SET_SELECTED_CARD:
+      return {
+        ...state,
+        selectedCard: action.payload,
       };
     default:
       return state;

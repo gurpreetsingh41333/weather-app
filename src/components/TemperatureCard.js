@@ -1,34 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-  CardActions,
-} from '@material-ui/core';
+import { Grid, Card, CardContent, Typography, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { constants } from '../config/constants';
+import { setSelectedCard } from '../actions/WeatherInfo.action';
+import { TYPES } from '../actions/types';
 
 const useStyles = makeStyles(() => ({
   alignment: { alignItems: 'center' },
   margin: { margin: '0.1em', padding: '0.1em' },
   card: { margin: '0.2em', width: '33%' },
   boxShadow: {
-    boxShadow:
-      '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
   },
   selectedBox: { boxShadow: '2px 5px 3px rgb(117, 178, 238)' },
+  zeroPadding: { padding: 0 },
+  noWrap: { whiteSpace: 'nowrap' },
 }));
 
-const TemperatureCard = ({
-  mouseHover,
-  selectedCard,
-  data,
-  setMouseHover,
-  setSelectedCard,
-}) => {
+const TemperatureCard = ({ mouseHover, data, setMouseHover }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const { unit, selectedCard } = useSelector(state => state.weather);
+  const unitValue = unit === constants.FAHRENHEIT ? 'F' : 'C';
 
   return (
     <Grid
@@ -39,39 +37,33 @@ const TemperatureCard = ({
       })}
       onMouseEnter={() => setMouseHover(data.date)}
       onMouseLeave={() => setMouseHover(null)}
-      onClick={() => setSelectedCard(data.date)}>
+      onClick={() => dispatch(setSelectedCard(TYPES.SET_SELECTED_CARD, data.date))}>
       <Card variant="outlined">
         <CardActions>
-          <CardContent>
+          <CardContent className={classes.zeroPadding}>
             <Grid container className={classes.alignment}>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.margin}>
+              <Typography variant="h5" component="h2" className={classes.margin}>
                 Temp:
               </Typography>
-              <Typography
-                variant="h6"
-                component="h2"
-                className={classes.margin}
-                color="textSecondary">
-                {data.avgTemp}F
+              <Typography variant="h6" component="h2" className={classes.margin} color="textSecondary">
+                {data.avgTemp} &deg;{unitValue}
               </Typography>
             </Grid>
             <Grid container className={classes.alignment}>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.margin}>
+              <Typography variant="h5" component="h2" className={classes.margin}>
                 Date:
               </Typography>
               <Typography
                 variant="h6"
                 component="h2"
-                className={classes.margin}
-                style={{ whiteSpace: 'nowrap' }}
+                className={clsx(classes.margin, classes.noWrap)}
                 color="textSecondary">
                 {data.date}
+              </Typography>
+            </Grid>
+            <Grid container className={classes.alignment}>
+              <Typography variant="h5" component="h2" className={classes.margin}>
+                ...
               </Typography>
             </Grid>
           </CardContent>
@@ -83,13 +75,11 @@ const TemperatureCard = ({
 
 TemperatureCard.propTypes = {
   mouseHover: PropTypes.string,
-  selectedCard: PropTypes.string,
   data: PropTypes.shape({
     avgTemp: PropTypes.string,
     date: PropTypes.string,
   }),
   setMouseHover: PropTypes.func,
-  setSelectedCard: PropTypes.func,
 };
 
 export default TemperatureCard;

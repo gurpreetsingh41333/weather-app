@@ -2,26 +2,28 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux';
 
-import CustomPagination from './CustomPagination';
-import TemperatureCard from './TemperatureCard';
+import CustomPagination from '../components/CustomPagination';
+import TemperatureCard from '../components/TemperatureCard';
+import { setSelectedCard } from '../actions/WeatherInfo.action';
+import { TYPES } from '../actions/types';
 
 const useStyles = makeStyles(() => ({
   cardRow: {
     justifyContent: 'space-around',
     flexFlow: 'row nowrap',
   },
-  cardGrid: { height: '40%', border: '1px solid red', alignItems: 'center' },
+  cardGrid: { height: '40%', alignItems: 'center' },
 }));
 
 const WeatherCards = ({ weatherInfo }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
   const [mouseHover, setMouseHover] = useState(null);
   const [cardArr] = useState(weatherInfo.dayWiseList);
   const [selectedCardArr, setSelectedCardArr] = useState([]);
-  const [selectedCard, setSelectedCard] = useState(
-    weatherInfo?.dayWiseList[0]?.date || '',
-  );
   const [pagination, setPagination] = useState({
     pageCount: 3,
     currentPage: 0,
@@ -33,6 +35,7 @@ const WeatherCards = ({ weatherInfo }) => {
   useEffect(() => {
     const tempArr = cardArr.slice(currentPage, currentPage + 3);
     setSelectedCardArr(tempArr);
+    dispatch(setSelectedCard(TYPES.SET_SELECTED_CARD, weatherInfo?.dayWiseList[0]?.date));
   }, []);
 
   const gotoPage = page => {
@@ -45,10 +48,7 @@ const WeatherCards = ({ weatherInfo }) => {
     paginate.hasPreviousPage = paginate.currentPage > 0;
     paginate.hasNextPage = paginate.currentPage < 2;
     setPagination(paginate);
-    const tempArr = cardArr.slice(
-      paginate.currentPage,
-      paginate.currentPage + 3,
-    );
+    const tempArr = cardArr.slice(paginate.currentPage, paginate.currentPage + 3);
     setSelectedCardArr(tempArr);
   };
 
@@ -58,14 +58,7 @@ const WeatherCards = ({ weatherInfo }) => {
         <CustomPagination gotoPage={gotoPage} pagination={pagination} />
         <Grid item container className={classes.cardRow}>
           {selectedCardArr.map(value => (
-            <TemperatureCard
-              key={value.avgTemp}
-              mouseHover={mouseHover}
-              selectedCard={selectedCard}
-              data={value}
-              setMouseHover={setMouseHover}
-              setSelectedCard={setSelectedCard}
-            />
+            <TemperatureCard key={value.avgTemp} mouseHover={mouseHover} data={value} setMouseHover={setMouseHover} />
           ))}
         </Grid>
       </Grid>

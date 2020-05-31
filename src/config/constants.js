@@ -8,7 +8,8 @@ export const infoMsg = {};
 export const successMsg = {};
 
 export const constants = {
-  CELCIUS: 'celcius',
-  FAHRENHEIT: 'fahrenheit',
-  DATE_FORMAT: 'DD MMM YY',
+  CELCIUS: 'metric',
+  FAHRENHEIT: 'imperial',
+  DATE_FORMAT: 'DD MMM YY', // 01 Jun 20
+  TIME_FORMAT: 'hh A', // 09 PM
 };
