@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, Tooltip } from 'recharts';
 import { Grid } from '@material-ui/core';
@@ -13,9 +13,21 @@ const useStyles = makeStyles(() => ({
 
 const Chart = ({ barChartData }) => {
   const classes = useStyles();
-  const { innerHeight, innerWidth } = window;
-  const width = innerWidth * 0.95;
-  const height = innerHeight * 0.4;
+
+  const { innerHeight, innerWidth, addEventListener, removeEventListener } = window;
+
+  const [width, setWidth] = useState(innerWidth * 0.95);
+  const [height, setHeight] = useState(innerHeight * 0.4);
+
+  const updateWidthAndHeight = () => {
+    setWidth(innerWidth * 0.95);
+    setHeight(innerHeight * 0.4);
+  };
+
+  useEffect(() => {
+    addEventListener('resize', updateWidthAndHeight);
+    return () => removeEventListener('resize', updateWidthAndHeight);
+  });
 
   return (
     <Grid item container xs={12} className={classes.grid}>

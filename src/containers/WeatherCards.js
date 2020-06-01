@@ -46,7 +46,7 @@ const WeatherCards = ({ weatherInfo }) => {
       paginate.currentPage = currentPage + 1;
     }
     paginate.hasPreviousPage = paginate.currentPage > 0;
-    paginate.hasNextPage = paginate.currentPage < 2;
+    paginate.hasNextPage = paginate.currentPage < (cardArr.length === 5 ? '2' : '3');
     setPagination(paginate);
     const tempArr = cardArr.slice(paginate.currentPage, paginate.currentPage + 3);
     setSelectedCardArr(tempArr);
