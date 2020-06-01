@@ -23,7 +23,6 @@ module.exports = (env = {}, argv = {}) => {
     output: {
       path: path.join(__dirname, '/build'),
       filename: 'main.js',
-      publicPath: '/', // allows you to specify the base path for all the assets within your application
     },
     devServer: {
       inline: true,

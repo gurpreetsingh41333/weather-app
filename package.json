@@ -2,6 +2,7 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gurpreetbirdi.github.io/weather-app",
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
@@ -25,7 +26,8 @@
     "build:stg": "webpack --env.stg --mode production",
     "build:qa": "webpack --env.qa --mode production",
     "build:dev": "webpack --env.dev --mode development",
-    "start": "webpack-dev-server --env.dev --mode development --open --hot"
+    "start": "webpack-dev-server --env.dev --mode development --open --hot",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "plugins": [
@@ -70,6 +72,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.0.0",
     "html-webpack-plugin": "^4.2.0",
     "husky": "^4.2.5",
     "image-webpack-loader": "^6.0.0",
