@@ -33,7 +33,7 @@ const Chart = ({ barChartData }) => {
     <Grid item container xs={12} className={classes.grid}>
       <Grid item xs={12} container className={classes.center}>
         <BarChart data={barChartData} width={width} height={height}>
-          <XAxis dataKey="main.label" axisLine={false} />
+          <XAxis dataKey="main.label" axisLine={false} style={{ fontSize: '0.7em' }} />
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="main.temp" barSize={50} fill="#8884d8" />
         </BarChart>
