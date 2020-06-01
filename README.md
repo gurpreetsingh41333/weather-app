@@ -6,6 +6,10 @@ An app to check the weather outside so we do not actually have to go outside to 
 
 This project uses [react-redux-router-hooks-starter-kit](https://github.com/gurpreetbirdi/react-redux-router-hooks-starter-kit.git 'gurpreetbirdi/react-redux-router-hooks-starter-kit')
 
+## Demo:
+
+[weather-app](https://gurpreetbirdi.github.io/weather-app)
+
 ## Getting Started
 
 **1. Clone the repository to your local machine by running:**
