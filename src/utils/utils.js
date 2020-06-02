@@ -14,13 +14,15 @@ export const dayWiseAvgTemp = data => {
         moment(list.dt_txt).format(constants.DATE_FORMAT) ===
         moment(data[0].dt_txt).add(i, 'd').format(constants.DATE_FORMAT),
     );
-    // same day temperature total
-    dayList.forEach(list => {
-      temp += list.main.temp;
-    });
-    day.avgTemp = (temp / dayList.length).toFixed(2);
-    day.date = moment(dayList[0].dt_txt).format(constants.DATE_FORMAT);
-    dayWiseList.push(day);
+    if (dayList.length) {
+      // same day temperature total
+      dayList.forEach(list => {
+        temp += list.main.temp;
+      });
+      day.avgTemp = (temp / dayList.length).toFixed(2);
+      day.date = moment(dayList[0].dt_txt).format(constants.DATE_FORMAT);
+      dayWiseList.push(day);
+    }
   }
   return dayWiseList;
 };

@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   zeroPadding: { padding: '0px' },
 }));
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload = [], label }) => {
   const classes = useStyles();
 
   if (active) {

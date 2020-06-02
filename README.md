@@ -33,7 +33,13 @@ cd weather-app
 
 Run webapp on port 3001 with HMR enabled or you can change port in webpack.config.js
 
-**5. Build files for deployment:**
+**5. Run test cases:**
+
+`npm test` or `yarn test`
+
+it will run the test cases in watch mode
+
+**6. Build files for deployment:**
 
 `npm run build:{variable}` or `yarn build:{variable}` `dev||qa||stg||prod`
 

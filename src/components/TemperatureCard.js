@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { constants } from '../config/constants';
 import { setSelectedCard } from '../actions/WeatherInfo.action';
-import { TYPES } from '../actions/types';
 
 const useStyles = makeStyles(() => ({
   alignment: { alignItems: 'center' },
@@ -37,7 +36,7 @@ const TemperatureCard = ({ mouseHover, data, setMouseHover }) => {
       })}
       onMouseEnter={() => setMouseHover(data.date)}
       onMouseLeave={() => setMouseHover(null)}
-      onClick={() => dispatch(setSelectedCard(TYPES.SET_SELECTED_CARD, data.date))}>
+      onClick={() => dispatch(setSelectedCard(data.date))}>
       <Card variant="outlined">
         <CardActions>
           <CardContent className={classes.zeroPadding}>

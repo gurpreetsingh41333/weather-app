@@ -9,7 +9,6 @@ import './App.css';
 import { constants } from '../../config/constants';
 import { getWeatherInfo, setUnit } from '../../actions/WeatherInfo.action';
 import Loader from '../../components/Loader';
-import { TYPES } from '../../actions/types';
 import UnitSelector from '../../components/UnitSelector';
 import TemperatureBarChart from '../TemperatureBarChart';
 
@@ -35,7 +34,7 @@ const App = () => {
 
   const handleChange = event => {
     const { value } = event.target;
-    dispatch(setUnit(TYPES.SET_UNIT, value));
+    dispatch(setUnit(value));
     getWeather(value);
   };
 

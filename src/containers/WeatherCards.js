@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import CustomPagination from '../components/CustomPagination';
 import TemperatureCard from '../components/TemperatureCard';
 import { setSelectedCard } from '../actions/WeatherInfo.action';
-import { TYPES } from '../actions/types';
 
 const useStyles = makeStyles(() => ({
   cardRow: {
@@ -35,7 +34,7 @@ const WeatherCards = ({ weatherInfo }) => {
   useEffect(() => {
     const tempArr = cardArr.slice(currentPage, currentPage + 3);
     setSelectedCardArr(tempArr);
-    dispatch(setSelectedCard(TYPES.SET_SELECTED_CARD, weatherInfo?.dayWiseList[0]?.date));
+    dispatch(setSelectedCard(weatherInfo?.dayWiseList[0]?.date));
   }, []);
 
   const gotoPage = page => {
