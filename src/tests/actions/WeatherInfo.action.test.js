@@ -1,8 +1,15 @@
 import 'regenerator-runtime/runtime';
 
-import { setWeatherInfo, setLoader, setUnit, setSelectedCard } from '../../actions/WeatherInfo.action';
+import {
+  setWeatherInfo,
+  setLoader,
+  setUnit,
+  setSelectedCard,
+  getWeatherInfo,
+} from '../../actions/WeatherInfo.action';
 import { TYPES } from '../../actions/types';
 import { constants } from '../../config/constants';
+import { store } from '../store/mockStore';
 
 test('should setup weather info action object', () => {
   const action = setWeatherInfo({});
@@ -66,4 +73,24 @@ test('should setup selected card action object with default value', () => {
     type: TYPES.SET_SELECTED_CARD,
     payload: '',
   });
+});
+
+test('should fetch the weather info', done => {
+  store
+    .dispatch(getWeatherInfo({ location: 'Munich,de', units: constants.FAHRENHEIT }))
+    .then(() => {
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual({ type: TYPES.LOADER, payload: true });
+      expect(actions[1]).toEqual({
+        type: TYPES.WEATHER_INFO,
+        payload: expect.objectContaining({
+          list: expect.any(Array),
+          city: expect.any(Object),
+          cod: '200',
+        }),
+      });
+      expect(actions[2]).toEqual({ type: TYPES.LOADER, payload: false });
+      done();
+    });
 });

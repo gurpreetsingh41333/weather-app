@@ -57,7 +57,12 @@ const WeatherCards = ({ weatherInfo }) => {
         <CustomPagination gotoPage={gotoPage} pagination={pagination} />
         <Grid item container className={classes.cardRow}>
           {selectedCardArr.map(value => (
-            <TemperatureCard key={value.avgTemp} mouseHover={mouseHover} data={value} setMouseHover={setMouseHover} />
+            <TemperatureCard
+              key={value.avgTemp}
+              mouseHover={mouseHover}
+              data={value}
+              setMouseHover={setMouseHover}
+            />
           ))}
         </Grid>
       </Grid>

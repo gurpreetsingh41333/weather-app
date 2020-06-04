@@ -17,24 +17,20 @@ const CustomPagination = ({ gotoPage, pagination }) => {
 
   return (
     <Grid item container className={classes.icon}>
-      {
-        <IconButton
-          aria-label="back-btn"
-          size="medium"
-          className={clsx(!hasPreviousPage && classes.hidden)}
-          onClick={() => gotoPage('back')}>
-          <ArrowBackIcon fontSize="inherit" />
-        </IconButton>
-      }
-      {
-        <IconButton
-          aria-label="next-btn"
-          size="medium"
-          className={clsx(!hasNextPage && classes.hidden)}
-          onClick={() => gotoPage('next')}>
-          <ArrowForwardIcon fontSize="inherit" />
-        </IconButton>
-      }
+      <IconButton
+        id="back-btn"
+        size="medium"
+        className={clsx(!hasPreviousPage && classes.hidden)}
+        onClick={() => gotoPage('back')}>
+        <ArrowBackIcon fontSize="inherit" />
+      </IconButton>
+      <IconButton
+        id="next-btn"
+        size="medium"
+        className={clsx(!hasNextPage && classes.hidden)}
+        onClick={() => gotoPage('next')}>
+        <ArrowForwardIcon fontSize="inherit" />
+      </IconButton>
     </Grid>
   );
 };

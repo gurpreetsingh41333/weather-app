@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should CustomTooltip return null if not active 1`] = `""`;
+
+exports[`should render CustomTooltip correctly 1`] = `
+<WithStyles(ForwardRef(Card))
+  variant="outlined"
+>
+  <WithStyles(ForwardRef(CardActions))>
+    <WithStyles(ForwardRef(CardContent))
+      className="makeStyles-zeroPadding-3"
+    >
+      <WithStyles(ForwardRef(Grid))
+        className="makeStyles-alignment-1"
+        container={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-margin-2"
+          component="h2"
+          variant="h5"
+        >
+          Temp:
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-margin-2"
+          color="textSecondary"
+          component="h2"
+          variant="h6"
+        >
+          53.98 °F
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        className="makeStyles-alignment-1"
+        container={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-margin-2"
+          component="h2"
+          variant="h5"
+        >
+          Time:
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-margin-2"
+          color="textSecondary"
+          component="h2"
+          style={
+            Object {
+              "whiteSpace": "nowrap",
+            }
+          }
+          variant="h6"
+        >
+          09 PM
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(CardContent))>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
+`;

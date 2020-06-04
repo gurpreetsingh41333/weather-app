@@ -24,7 +24,11 @@ const CustomTooltip = ({ active, payload = [], label }) => {
               <Typography variant="h5" component="h2" className={classes.margin}>
                 Temp:
               </Typography>
-              <Typography variant="h6" component="h2" className={classes.margin} color="textSecondary">
+              <Typography
+                variant="h6"
+                component="h2"
+                className={classes.margin}
+                color="textSecondary">
                 {label}
               </Typography>
             </Grid>

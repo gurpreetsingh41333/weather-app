@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UnitSelector /> should render UnitSelector correctly 1`] = `
+<WithStyles(ForwardRef(Grid))
+  className="makeStyles-grid-1"
+  container={true}
+  item={true}
+  xs={12}
+>
+  <WithStyles(ForwardRef(FormControl))
+    component="fieldset"
+  >
+    <ForwardRef(RadioGroup)
+      id="unit"
+      name="unit"
+      onChange={[MockFunction]}
+      row={true}
+      value="imperial"
+    >
+      <WithStyles(ForwardRef(FormControlLabel))
+        control={<WithStyles(ForwardRef(Radio)) />}
+        label="Celcius"
+        value="metric"
+      />
+      <WithStyles(ForwardRef(FormControlLabel))
+        control={<WithStyles(ForwardRef(Radio)) />}
+        label="Fahrenheit"
+        value="imperial"
+      />
+    </ForwardRef(RadioGroup)>
+  </WithStyles(ForwardRef(FormControl))>
+</WithStyles(ForwardRef(Grid))>
+`;

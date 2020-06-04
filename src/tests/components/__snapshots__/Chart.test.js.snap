@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Chart correctly 1`] = `
+<WithStyles(ForwardRef(Grid))
+  className="makeStyles-grid-1"
+  container={true}
+  item={true}
+  xs={12}
+>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-center-2"
+    container={true}
+    item={true}
+    xs={12}
+  >
+    <BarChart
+      barCategoryGap="10%"
+      barGap={4}
+      data={
+        Array [
+          Object {
+            "clouds": Object {
+              "all": 65,
+            },
+            "dt": 1591401600,
+            "dt_txt": "2020-06-06 00:00:00",
+            "main": Object {
+              "feels_like": 45.32,
+              "grnd_level": 945,
+              "humidity": 73,
+              "label": "53.08 °F",
+              "pressure": 1005,
+              "sea_level": 1005,
+              "temp": 53.08,
+              "temp_kf": 0,
+              "temp_max": 53.08,
+              "temp_min": 53.08,
+            },
+            "sys": Object {
+              "pod": "n",
+            },
+            "weather": Array [
+              Object {
+                "description": "broken clouds",
+                "icon": "04n",
+                "id": 803,
+                "main": "Clouds",
+              },
+            ],
+            "wind": Object {
+              "deg": 254,
+              "speed": 11.56,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 88,
+            },
+            "dt": 1591412400,
+            "dt_txt": "2020-06-06 03:00:00",
+            "main": Object {
+              "feels_like": 47.93,
+              "grnd_level": 945,
+              "humidity": 87,
+              "label": "52.03 °F",
+              "pressure": 1005,
+              "sea_level": 1005,
+              "temp": 52.03,
+              "temp_kf": 0,
+              "temp_max": 52.03,
+              "temp_min": 52.03,
+            },
+            "rain": Object {
+              "3h": 0.34,
+            },
+            "sys": Object {
+              "pod": "n",
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "10n",
+                "id": 500,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 235,
+              "speed": 6.62,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 87,
+            },
+            "dt": 1591423200,
+            "dt_txt": "2020-06-06 06:00:00",
+            "main": Object {
+              "feels_like": 53.31,
+              "grnd_level": 945,
+              "humidity": 78,
+              "label": "55.89 °F",
+              "pressure": 1005,
+              "sea_level": 1005,
+              "temp": 55.89,
+              "temp_kf": 0,
+              "temp_max": 55.89,
+              "temp_min": 55.89,
+            },
+            "rain": Object {
+              "3h": 0.35,
+            },
+            "sys": Object {
+              "pod": "d",
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "10d",
+                "id": 500,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 219,
+              "speed": 4.32,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 95,
+            },
+            "dt": 1591434000,
+            "dt_txt": "2020-06-06 09:00:00",
+            "main": Object {
+              "feels_like": 56.61,
+              "grnd_level": 946,
+              "humidity": 66,
+              "label": "61.75 °F",
+              "pressure": 1005,
+              "sea_level": 1005,
+              "temp": 61.75,
+              "temp_kf": 0,
+              "temp_max": 61.75,
+              "temp_min": 61.75,
+            },
+            "rain": Object {
+              "3h": 0.26,
+            },
+            "sys": Object {
+              "pod": "d",
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "10d",
+                "id": 500,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 258,
+              "speed": 9.42,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 97,
+            },
+            "dt": 1591444800,
+            "dt_txt": "2020-06-06 12:00:00",
+            "main": Object {
+              "feels_like": 61.5,
+              "grnd_level": 945,
+              "humidity": 66,
+              "label": "64.17 °F",
+              "pressure": 1005,
+              "sea_level": 1005,
+              "temp": 64.17,
+              "temp_kf": 0,
+              "temp_max": 64.17,
+              "temp_min": 64.17,
+            },
+            "rain": Object {
+              "3h": 0.34,
+            },
+            "sys": Object {
+              "pod": "d",
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "10d",
+                "id": 500,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 259,
+              "speed": 6.15,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 100,
+            },
+            "dt": 1591455600,
+            "dt_txt": "2020-06-06 15:00:00",
+            "main": Object {
+              "feels_like": 60.12,
+              "grnd_level": 946,
+              "humidity": 76,
+              "label": "61.02 °F",
+              "pressure": 1005,
+              "sea_level": 1005,
+              "temp": 61.02,
+              "temp_kf": 0,
+              "temp_max": 61.02,
+              "temp_min": 61.02,
+            },
+            "rain": Object {
+              "3h": 0.46,
+            },
+            "sys": Object {
+              "pod": "d",
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "10d",
+                "id": 500,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 308,
+              "speed": 3.47,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 100,
+            },
+            "dt": 1591466400,
+            "dt_txt": "2020-06-06 18:00:00",
+            "main": Object {
+              "feels_like": 56.12,
+              "grnd_level": 946,
+              "humidity": 88,
+              "label": "56.44 °F",
+              "pressure": 1006,
+              "sea_level": 1006,
+              "temp": 56.44,
+              "temp_kf": 0,
+              "temp_max": 56.44,
+              "temp_min": 56.44,
+            },
+            "rain": Object {
+              "3h": 1.52,
+            },
+            "sys": Object {
+              "pod": "d",
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "10d",
+                "id": 500,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 158,
+              "speed": 2.19,
+            },
+          },
+          Object {
+            "clouds": Object {
+              "all": 100,
+            },
+            "dt": 1591477200,
+            "dt_txt": "2020-06-06 21:00:00",
+            "main": Object {
+              "feels_like": 53.28,
+              "grnd_level": 948,
+              "humidity": 94,
+              "label": "55.04 °F",
+              "pressure": 1008,
+              "sea_level": 1008,
+              "temp": 55.04,
+              "temp_kf": 0,
+              "temp_max": 55.04,
+              "temp_min": 55.04,
+            },
+            "rain": Object {
+              "3h": 5.66,
+            },
+            "sys": Object {
+              "pod": "n",
+            },
+            "weather": Array [
+              Object {
+                "description": "moderate rain",
+                "icon": "10n",
+                "id": 501,
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "deg": 219,
+              "speed": 4.99,
+            },
+          },
+        ]
+      }
+      height={307.20000000000005}
+      layout="horizontal"
+      margin={
+        Object {
+          "bottom": 5,
+          "left": 5,
+          "right": 5,
+          "top": 5,
+        }
+      }
+      reverseStackOrder={false}
+      stackOffset="none"
+      width={972.8}
+    >
+      <XAxis
+        allowDataOverflow={false}
+        allowDecimals={true}
+        allowDuplicatedCategory={true}
+        axisLine={false}
+        dataKey="main.label"
+        domain={
+          Array [
+            0,
+            "auto",
+          ]
+        }
+        height={30}
+        hide={false}
+        mirror={false}
+        orientation="bottom"
+        padding={
+          Object {
+            "left": 0,
+            "right": 0,
+          }
+        }
+        reversed={false}
+        scale="auto"
+        style={
+          Object {
+            "fontSize": "0.7em",
+          }
+        }
+        tickCount={5}
+        type="category"
+        width={0}
+        xAxisId={0}
+      />
+      <Tooltip
+        active={false}
+        allowEscapeViewBox={
+          Object {
+            "x": false,
+            "y": false,
+          }
+        }
+        animationDuration={400}
+        animationEasing="ease"
+        content={<CustomTooltip />}
+        contentStyle={Object {}}
+        coordinate={
+          Object {
+            "x": 0,
+            "y": 0,
+          }
+        }
+        cursor={true}
+        cursorStyle={Object {}}
+        filterNull={true}
+        isAnimationActive={true}
+        itemStyle={Object {}}
+        labelStyle={Object {}}
+        offset={10}
+        separator=" : "
+        useTranslate3d={false}
+        viewBox={
+          Object {
+            "x1": 0,
+            "x2": 0,
+            "y1": 0,
+            "y2": 0,
+          }
+        }
+        wrapperStyle={Object {}}
+      />
+      <Bar
+        animationBegin={0}
+        animationDuration={400}
+        animationEasing="ease"
+        barSize={50}
+        data={Array []}
+        dataKey="main.temp"
+        fill="#8884d8"
+        hide={false}
+        isAnimationActive={true}
+        layout="vertical"
+        legendType="rect"
+        minPointSize={0}
+        onAnimationEnd={[Function]}
+        onAnimationStart={[Function]}
+        xAxisId={0}
+        yAxisId={0}
+      />
+    </BarChart>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

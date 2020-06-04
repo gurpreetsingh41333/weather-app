@@ -17,7 +17,7 @@ const UnitSelector = ({ unit, handleChange }) => {
   return (
     <Grid item container xs={12} className={classes.grid}>
       <FormControl component="fieldset">
-        <RadioGroup aria-label="unit" name="unit" row value={unit} onChange={handleChange}>
+        <RadioGroup id="unit" name="unit" row value={unit} onChange={handleChange}>
           <FormControlLabel value={constants.CELCIUS} control={<Radio />} label="Celcius" />
           <FormControlLabel value={constants.FAHRENHEIT} control={<Radio />} label="Fahrenheit" />
         </RadioGroup>

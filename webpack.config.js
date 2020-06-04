@@ -3,20 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { DefinePlugin } = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const Dotenv = require('dotenv-webpack');
+const dotenv = require('dotenv');
 
 // To prevent argv being undefined, let's use a default value
 module.exports = (env = {}, argv = {}) => {
-  let envPath = '.env';
+  const envPath = {};
   if (env.dev) {
-    envPath = path.join(__dirname, 'config', '.env.dev');
+    envPath.path = path.join(__dirname, 'config', '.env.dev');
   } else if (env.qa) {
-    envPath = path.join(__dirname, 'config', '.env.qa');
+    envPath.path = path.join(__dirname, 'config', '.env.qa');
   } else if (env.stg) {
-    envPath = path.join(__dirname, 'config', '.env.stg');
+    envPath.path = path.join(__dirname, 'config', '.env.stg');
   } else if (env.prod) {
-    envPath = path.join(__dirname, 'config', '.env.prod');
+    envPath.path = path.join(__dirname, 'config', '.env.prod');
   }
+  dotenv.config(envPath);
 
   return {
     entry: './src/index.js',
@@ -102,11 +103,9 @@ module.exports = (env = {}, argv = {}) => {
       new DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify(argv.mode),
+          API_BASE_URL: JSON.stringify(process.env.API_BASE_URL),
+          APP_ID: JSON.stringify(process.env.APP_ID),
         },
-      }),
-      new Dotenv({
-        path: envPath,
-        safe: true,
       }),
     ].filter(
       // To remove any possibility of "null" values inside the plugins array, we filter it

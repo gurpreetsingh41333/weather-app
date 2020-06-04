@@ -1,0 +1,30 @@
+export const payload = [
+  {
+    fill: '#8884d8',
+    dataKey: 'main.temp',
+    name: 'main.temp',
+    color: '#8884d8',
+    value: 53.98,
+    payload: {
+      dt: 1591304400,
+      main: {
+        temp: 53.98,
+        feels_like: 47.64,
+        temp_min: 52.9,
+        temp_max: 53.98,
+        pressure: 998,
+        sea_level: 997,
+        grnd_level: 937,
+        humidity: 88,
+        temp_kf: 0.6,
+        label: '53.98 °F',
+      },
+      weather: [{ id: 500, main: 'Rain', description: 'light rain', icon: '10n' }],
+      clouds: { all: 100 },
+      wind: { speed: 11.63, deg: 244 },
+      rain: { '3h': 1.79 },
+      sys: { pod: 'n' },
+      dt_txt: '2020-06-04 21:00:00',
+    },
+  },
+];

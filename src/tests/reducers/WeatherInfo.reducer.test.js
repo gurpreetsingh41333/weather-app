@@ -1,7 +1,7 @@
 import { weather } from '../../reducers/WeatherInfo.reducer';
 import { constants } from '../../config/constants';
 import { TYPES } from '../../actions/types';
-import data from '../testData.json';
+import data from '../fixtures/weatherInfo.json';
 
 test('should setup default weather reducer values to state', () => {
   const state = weather(undefined, { type: '@@INIT' });

@@ -30,6 +30,7 @@ const TemperatureCard = ({ mouseHover, data, setMouseHover }) => {
   return (
     <Grid
       item
+      id="temp-grid"
       className={clsx(classes.card, {
         [classes.boxShadow]: mouseHover === data.date,
         [classes.selectedBox]: selectedCard === data.date,
@@ -44,7 +45,11 @@ const TemperatureCard = ({ mouseHover, data, setMouseHover }) => {
               <Typography variant="h5" component="h2" className={classes.margin}>
                 Temp:
               </Typography>
-              <Typography variant="h6" component="h2" className={classes.margin} color="textSecondary">
+              <Typography
+                variant="h6"
+                component="h2"
+                className={classes.margin}
+                color="textSecondary">
                 {data.avgTemp} &deg;{unitValue}
               </Typography>
             </Grid>

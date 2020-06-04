@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CustomPagination /> should render CustomPagination correctly 1`] = `
+<WithStyles(ForwardRef(Grid))
+  className="makeStyles-icon-1"
+  container={true}
+  item={true}
+>
+  <WithStyles(ForwardRef(IconButton))
+    className=""
+    id="back-btn"
+    onClick={[Function]}
+    size="medium"
+  >
+    <ArrowBackIcon
+      fontSize="inherit"
+    />
+  </WithStyles(ForwardRef(IconButton))>
+  <WithStyles(ForwardRef(IconButton))
+    className=""
+    id="next-btn"
+    onClick={[Function]}
+    size="medium"
+  >
+    <ArrowForwardIcon
+      fontSize="inherit"
+    />
+  </WithStyles(ForwardRef(IconButton))>
+</WithStyles(ForwardRef(Grid))>
+`;

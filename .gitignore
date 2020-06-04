@@ -16,6 +16,7 @@
 .env.dev
 .env.qa
 .env.stg
+.env.test
 .env.prod
 
 npm-debug.log*

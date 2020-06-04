@@ -13,12 +13,17 @@ export const setUnit = (payload = constants.FAHRENHEIT) => ({ type: TYPES.SET_UN
 export const setSelectedCard = (payload = '') => ({ type: TYPES.SET_SELECTED_CARD, payload });
 
 // fetch the weather info for 5 days & every 3 hours
-export const getWeatherInfo = ({ location = 'Munich,de', units = constants.FAHRENHEIT }) => async dispatch => {
+export const getWeatherInfo = ({
+  location = 'Munich,de',
+  units = constants.FAHRENHEIT,
+}) => async dispatch => {
   dispatch(setLoader(true));
   const config = {
     url:
       API_BASE_URL +
-      END_POINTS.GET_WEATHER_INFO.replace('{LOCATION}', location).replace('{APP_ID}', APP_ID).replace('{UNITS}', units),
+      END_POINTS.GET_WEATHER_INFO.replace('{LOCATION}', location)
+        .replace('{APP_ID}', APP_ID)
+        .replace('{UNITS}', units),
   };
   try {
     const weatherInfoResponse = await ApiCall.getCall(config);
