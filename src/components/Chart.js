@@ -14,19 +14,17 @@ const useStyles = makeStyles(() => ({
 const Chart = ({ barChartData }) => {
   const classes = useStyles();
 
-  const { innerHeight, innerWidth, addEventListener, removeEventListener } = window;
-
-  const [width, setWidth] = useState(innerWidth * 0.95);
-  const [height, setHeight] = useState(innerHeight * 0.4);
+  const [width, setWidth] = useState(window.innerWidth * 0.95);
+  const [height, setHeight] = useState(window.innerHeight * 0.4);
 
   const updateWidthAndHeight = () => {
-    setWidth(innerWidth * 0.95);
-    setHeight(innerHeight * 0.4);
+    setWidth(window.innerWidth * 0.95);
+    setHeight(window.innerHeight * 0.4);
   };
 
   useEffect(() => {
-    addEventListener('resize', updateWidthAndHeight);
-    return () => removeEventListener('resize', updateWidthAndHeight);
+    window.addEventListener('resize', updateWidthAndHeight);
+    return () => window.removeEventListener('resize', updateWidthAndHeight);
   });
 
   return (
