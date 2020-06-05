@@ -4,13 +4,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 
-import WeatherCards from '../WeatherCards';
-import './App.css';
-import { constants } from '../../config/constants';
-import { getWeatherInfo, setUnit } from '../../actions/WeatherInfo.action';
-import Loader from '../../components/Loader';
-import UnitSelector from '../../components/UnitSelector';
-import TemperatureBarChart from '../TemperatureBarChart';
+import WeatherCards from './WeatherCards';
+import { constants } from '../config/constants';
+import { getWeatherInfo, setUnit } from '../actions/WeatherInfo.action';
+import Loader from '../components/Loader';
+import UnitSelector from '../components/UnitSelector';
+import TemperatureBarChart from './TemperatureBarChart';
 
 const useStyles = makeStyles(() => ({
   root: {

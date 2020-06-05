@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const showErrorPage = () => {
-  /* TODO check for 5XX or 4XX here */
+  /* TODO check for 5XX or 4XX here
+  Redirect to error page */
 };
 
 const ApiCall = {

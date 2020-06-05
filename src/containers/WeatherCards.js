@@ -20,11 +20,10 @@ const WeatherCards = ({ weatherInfo }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [mouseHover, setMouseHover] = useState(null);
+  const [mouseHover, setMouseHover] = useState('');
   const [cardArr] = useState(weatherInfo.dayWiseList);
   const [selectedCardArr, setSelectedCardArr] = useState([]);
   const [pagination, setPagination] = useState({
-    pageCount: 3,
     currentPage: 0,
     hasPreviousPage: false,
     hasNextPage: true,

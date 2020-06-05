@@ -1,5 +1,3 @@
-import 'regenerator-runtime/runtime';
-
 import {
   setWeatherInfo,
   setLoader,

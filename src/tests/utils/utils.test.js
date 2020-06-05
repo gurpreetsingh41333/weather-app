@@ -1,8 +1,8 @@
 import { dayWiseAvgTemp } from '../../utils/utils';
-import data from '../fixtures/weatherInfo.json';
+import { weatherInfo } from '../fixtures/weatherInfo';
 
 test('should return an array containing average temp & date', () => {
-  const result = dayWiseAvgTemp(data.list);
+  const result = dayWiseAvgTemp(weatherInfo.list);
   expect(result).toEqual(
     expect.arrayContaining([
       {

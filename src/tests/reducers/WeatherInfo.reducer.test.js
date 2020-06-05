@@ -1,7 +1,7 @@
 import { weather } from '../../reducers/WeatherInfo.reducer';
 import { constants } from '../../config/constants';
 import { TYPES } from '../../actions/types';
-import data from '../fixtures/weatherInfo.json';
+import { weatherInfo } from '../fixtures/weatherInfo';
 
 test('should setup default weather reducer values to state', () => {
   const state = weather(undefined, { type: '@@INIT' });
@@ -20,13 +20,14 @@ test('should setup default weather reducer values to state', () => {
 test('should set weather info to state', () => {
   const action = {
     type: TYPES.WEATHER_INFO,
-    payload: data,
+    payload: weatherInfo,
   };
   const state = weather(undefined, action);
   expect(state.weatherInfo).toEqual(
     expect.objectContaining({
       list: expect.any(Array),
       city: expect.any(Object),
+      dayWiseList: expect.any(Array),
     }),
   );
 });

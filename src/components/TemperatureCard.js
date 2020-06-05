@@ -36,7 +36,7 @@ const TemperatureCard = ({ mouseHover, data, setMouseHover }) => {
         [classes.selectedBox]: selectedCard === data.date,
       })}
       onMouseEnter={() => setMouseHover(data.date)}
-      onMouseLeave={() => setMouseHover(null)}
+      onMouseLeave={() => setMouseHover('')}
       onClick={() => dispatch(setSelectedCard(data.date))}>
       <Card variant="outlined">
         <CardActions>

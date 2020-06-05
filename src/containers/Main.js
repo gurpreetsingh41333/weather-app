@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 
-import App from './App/App';
+import App from './App';
+import ApplicationError from '../components/ErrorPages/ApplicationError';
 
 class Main extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Main extends React.Component {
     const { hasError } = this.state;
     if (hasError) {
       // render any custom fallback UI
-      return <span>Error</span>;
+      return <ApplicationError />;
     }
     return <App />;
   }

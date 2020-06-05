@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import 'regenerator-runtime/runtime';
 import { Provider } from 'react-redux';
 
 import TemperatureCard from '../../components/TemperatureCard';
@@ -38,7 +37,7 @@ describe('<TemperatureCard />', () => {
 
   test('should call setMouseHover on mouse leave with null', () => {
     wrapper.find('#temp-grid').first().simulate('mouseleave');
-    expect(setMouseHover).toHaveBeenCalledWith(null);
+    expect(setMouseHover).toHaveBeenCalledWith('');
   });
 
   test('should dispatch setSelectedCard on click with date', () => {
