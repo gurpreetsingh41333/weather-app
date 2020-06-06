@@ -7,5 +7,5 @@ export const { API_BASE_URL } = process.env;
 
 // end points
 export const END_POINTS = {
-  GET_WEATHER_INFO: '/data/2.5/forecast?q={LOCATION}&APPID={APP_ID}&units={UNITS}&cnt=40',
+  GET_WEATHER_INFO: '/data/2.5/forecast?lat={lat}&lon={lon}&appid={APP_ID}&units={UNITS}&cnt=40',
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,20 +21,40 @@ const App = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const [location, setLocation] = useState({ latitude: '48.1374', longitude: '11.5755' });
+
   const { weatherInfo, loader, unit } = useSelector(state => state.weather);
 
-  const getWeather = async units => {
-    await dispatch(getWeatherInfo({ units }));
+  const getWeather = async (location, units) => {
+    await dispatch(getWeatherInfo({ location, units }));
   };
 
   useEffect(() => {
-    getWeather(constants.FAHRENHEIT);
+    const success = position => {
+      const { latitude, longitude } = position.coords;
+      const location = { latitude, longitude };
+      setLocation(location);
+      getWeather(location, constants.FAHRENHEIT);
+    };
+
+    const error = () => {
+      // get weather info with default Munich, Germany location
+      getWeather(location, constants.FAHRENHEIT);
+    };
+
+    (async () => {
+      if (!navigator.geolocation) {
+        error();
+      } else {
+        await navigator.geolocation.getCurrentPosition(success, error);
+      }
+    })();
   }, []);
 
   const handleChange = event => {
     const { value } = event.target;
     dispatch(setUnit(value));
-    getWeather(value);
+    getWeather(location, value);
   };
 
   if (loader) {

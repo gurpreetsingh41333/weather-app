@@ -75,7 +75,12 @@ test('should setup selected card action object with default value', () => {
 
 test('should fetch the weather info', done => {
   store
-    .dispatch(getWeatherInfo({ location: 'Munich,de', units: constants.FAHRENHEIT }))
+    .dispatch(
+      getWeatherInfo({
+        location: { latitude: '48.1374', longitude: '11.5755' },
+        units: constants.FAHRENHEIT,
+      }),
+    )
     .then(() => {
       const actions = store.getActions();
 

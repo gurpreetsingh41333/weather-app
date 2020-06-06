@@ -14,14 +14,15 @@ export const setSelectedCard = (payload = '') => ({ type: TYPES.SET_SELECTED_CAR
 
 // fetch the weather info for 5 days & every 3 hours
 export const getWeatherInfo = ({
-  location = 'Munich,de',
+  location = { latitude: '48.1374', longitude: '11.5755' },
   units = constants.FAHRENHEIT,
 }) => async dispatch => {
   dispatch(setLoader(true));
   const config = {
     url:
       API_BASE_URL +
-      END_POINTS.GET_WEATHER_INFO.replace('{LOCATION}', location)
+      END_POINTS.GET_WEATHER_INFO.replace('{lat}', location.latitude)
+        .replace('{lon}', location.longitude)
         .replace('{APP_ID}', APP_ID)
         .replace('{UNITS}', units),
   };
